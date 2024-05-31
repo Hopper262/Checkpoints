@@ -1,0 +1,38 @@
+Checkpoints 1.0
+---------------
+by Hopper
+
+----------------------------------------------------------------
+DESCRIPTION:
+
+Checkpoints is an implementation of Halo-style automatic saved games in the middle of a level. Mapmakers use annotations to mark where checkpoints should occur, and the Lua script does the rest. It also creates a save point after each level transition.
+
+Includes a sample map. Find all seven checkpoints!
+
+By default, checkpoints are disabled under Aleph One 1.1 and earlier, as they work best with the quick-save functionality introduced in 1.2.
+
+----------------------------------------------------------------
+INSTALLATION:
+
+The Lua script is TEXT resource 129. In order to integrate it with existing Lua code, make sure to call the init() and idle() routines, and call Game.restore_saved() when appropriate.
+
+All variables are contained in a "Checkpoints" top-level object, so you only have to worry about namespace collision with that one name.
+
+----------------------------------------------------------------
+DETAILS:
+
+Like (most) instances in Halo, checkpoints can only be used once, and are delayed during combat. Combat detection is not very good, due to a mix of laziness, performance concerns, and limitations in the current Lua API.
+
+Annotations with the text "CP" denote checkpoints, and are removed from view by the script. To trigger, the player must be located on an annotated polygon for at least one tick (stopping is not required). If you're not sure which poly the player will cross, you can mark multiple adjacent polys; these will be treated as one checkpoint by the script, and standing on any of them will trigger the checkpoint and keep it from being re-used.
+
+----------------------------------------------------------------
+CHANGELOG:
+
+v1.0:
+* First release
+
+----------------------------------------------------------------
+CONTACT:
+
+If you have any questions, comments, or bugs to report, you can email Hopper:
+- hopper@whpress.com

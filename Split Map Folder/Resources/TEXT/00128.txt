@@ -1,0 +1,5 @@
+<marathon_levels>
+  <default>
+    <lua resource="129"/>
+  </default>
+</marathon_levels>
